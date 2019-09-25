@@ -8,6 +8,10 @@
  *    a. This method will be the trickest part. Check the comments in the stubbed-out method below for some pseudocode to help guide you through this part
  * 2. Pass the method down to the TodoItem component
  * 3. In the TodoItem component, make it so when the `onChange` event happens, it calls the `handleChange` method and passes the id of the todo into the function
+ *   
+ * Part 3 explained: In the TodoItem component -(Open TodoItem.js), make it so when the `onChange` event happens-(create the onChange event), it calls the `handleChange` method and passes the id of the todo into the function-(looking for the id, you use {() => props.handleChange(props.item.id)}, as you are using the properties of handleChange(id), )
+ *  * 2. Pass the method down to the TodoItem component
+ * 3. In the TodoItem component, make it so when the `onChange` event happens, 
  */
 
 import React from "react"
@@ -40,7 +44,8 @@ class App extends React.Component {
     
     render() {
         const todoItems = this.state.todos.map(item => <TodoItem key={item.id} item={item} handleChange={this.handleChange}/>)
-        
+        // 2. Pass the method down to the ToDoItem component. This is passed down above here ^^^^
+        // 2. change in the ToDoItem.js - It is receiving a prop called handleChange, it is taking the id as parameter
         return (
             <div className="todo-list">
                 {todoItems}
